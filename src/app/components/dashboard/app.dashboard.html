@@ -1,0 +1,25 @@
+<div class='available-users' *ngIf='_allUsers && _allUsers.length'>
+    <h3><md-card-content>Available Users</md-card-content></h3>
+    <md-card  class='my-booking-card' *ngFor="let item of _allUsers" (click)='selectUserTochat(item)'>
+        <md-card-content class='avail-head-username'> {{item.username}} </md-card-content>
+    </md-card>
+</div>
+<div class='chatRoom'>
+    <h3><md-card-content style="text-transform: capitalize" *ngIf='currentSelectedUser'>Active : {{currentSelectedUser.username}}</md-card-content></h3>
+        <md-card class='chatContainer' style="overflow-y: scroll;overflow-x: hidden;">
+            <div *ngIf='user && _allCurrentMessages && _allCurrentMessages.length'>
+                <md-card-content *ngFor='let message of _allCurrentMessages' [ngClass]="{'right-side':message.sender == user.$key}">
+                    {{message.message}}
+                    <span *ngIf='message.url'><a href="{{message.url}}" target="_blank"><img height="100" width="120" src="{{message.url}}"></a></span>
+                </md-card-content>
+            </div>
+        </md-card>
+     <md-input-container class="example-full-width" >
+        <textarea md-input  placeholder="type.."  [(ngModel)]="current.message"></textarea>
+    </md-input-container>
+    <button md-raised-button  color='primary' (click)='sendMessage()'>Send</button>
+    <form ngNoForm style="display:inline-block;margin-left: 210%">
+        <input id="uploadFile" name="file" type="file" style='margin-bottom:5px;' (change)='getFile($event)'>
+        <button (click)="uploadFile()" md-raised-button color="primary" type="button">Upload</button>
+    </form>
+</div>

@@ -1,0 +1,23 @@
+.avail-head-username{
+    text-transform: capitalize;
+}
+.available-users{
+    width: 16%;
+    float: right;
+}
+.my-booking-card{
+    margin-bottom: 3px;
+    cursor: pointer;
+}
+.chatRoom{
+    width:300px;
+    margin-left:15%;
+    margin-top:2%;
+}
+.chatContainer{
+    height: 335px;
+    width: 712px;
+}
+.right-side{
+    margin-left: 79%;
+}
