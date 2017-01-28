@@ -1,0 +1,36 @@
+
+<md-grid-list cols="3">
+  <md-grid-tile></md-grid-tile>
+  <md-grid-tile>
+<md-card class='example-card'>
+        <div class='head-hh'>
+            <md-progress-spinner class="spin" mode="indeterminate" *ngIf='spinner'></md-progress-spinner>
+            <h2>Sign Up</h2>
+            <form class='example-form' (ngSubmit)="onSignUp()" #signUpForm="ngForm">
+                
+                <div>
+                    <md-input-container class="example-full-width">
+                    <input md-input type='text' placeholder="Username"  [(ngModel)]="model.username" name="username"  #username="ngModel">
+                    </md-input-container>
+                </div>
+                <div>
+                    <md-input-container class="example-full-width">
+                    <input md-input type='email' placeholder="Email"  [(ngModel)]="model.email" name="email"  #email="ngModel">
+                    </md-input-container>
+                </div>
+                <div>
+                    <md-input-container class="example-full-width">
+                    <input md-input type='password' placeholder="Password"  [(ngModel)]="model.password" name="password"  #password="ngModel">
+                    </md-input-container>
+                </div>
+                <div>
+                    <button md-button type="submit">Sign Up</button>
+                    <button md-button (click)='cancel()'>Cancel</button>
+                </div>
+                
+            </form>
+        </div>
+</md-card>
+</md-grid-tile>
+<md-grid-tile></md-grid-tile>
+</md-grid-list>
